@@ -1,23 +1,23 @@
 //
-//  ACFeedViewController.m
+//  ACMediaListViewController.m
 //  ACInsagramFeed
 //
 //  Created by Chemersky on 5/14/17.
 //  Copyright © 2017 Chemer. All rights reserved.
 //
 
-#import "ACFeedViewController.h"
+#import "ACMediaListViewController.h"
 #import "ACMediaDetailViewController.h"
 #import "ACInstagramJsonParser.h"
 
-@interface ACFeedViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ACMediaListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSString *accessToken;
 @property (strong, nonatomic) NSArray *data;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
-@implementation ACFeedViewController
+@implementation ACMediaListViewController
 
 - (instancetype)initWithAccessToken:(NSString *)accessToken
 {

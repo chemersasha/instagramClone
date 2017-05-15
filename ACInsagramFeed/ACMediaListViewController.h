@@ -1,5 +1,5 @@
 //
-//  ACFeedViewController.h
+//  ACMediaListViewController.h
 //  ACInsagramFeed
 //
 //  Created by Chemersky on 5/14/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACFeedViewController : UIViewController
+@interface ACMediaListViewController : UIViewController
 - (instancetype)initWithAccessToken:(NSString *)accessToken;
 @end

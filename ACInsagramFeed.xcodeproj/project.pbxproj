@@ -18,8 +18,8 @@
 		96EB6C761EC86E390035F33B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6C741EC86E390035F33B /* LaunchScreen.storyboard */; };
 		96EB6C811EC87BD20035F33B /* ACInstagramWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EB6C7F1EC87BD20035F33B /* ACInstagramWebViewController.m */; };
 		96EB6C821EC87BD20035F33B /* ACInstagramWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6C801EC87BD20035F33B /* ACInstagramWebViewController.xib */; };
-		96EB6C861EC8E1B20035F33B /* ACFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EB6C841EC8E1B20035F33B /* ACFeedViewController.m */; };
-		96EB6C871EC8E1B20035F33B /* ACFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6C851EC8E1B20035F33B /* ACFeedViewController.xib */; };
+		96EB6C861EC8E1B20035F33B /* ACMediaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EB6C841EC8E1B20035F33B /* ACMediaListViewController.m */; };
+		96EB6C871EC8E1B20035F33B /* ACMediaListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6C851EC8E1B20035F33B /* ACMediaListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +41,9 @@
 		96EB6C7E1EC87BD20035F33B /* ACInstagramWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACInstagramWebViewController.h; path = Web/ACInstagramWebViewController.h; sourceTree = "<group>"; };
 		96EB6C7F1EC87BD20035F33B /* ACInstagramWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACInstagramWebViewController.m; path = Web/ACInstagramWebViewController.m; sourceTree = "<group>"; };
 		96EB6C801EC87BD20035F33B /* ACInstagramWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ACInstagramWebViewController.xib; path = Web/ACInstagramWebViewController.xib; sourceTree = "<group>"; };
-		96EB6C831EC8E1B20035F33B /* ACFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFeedViewController.h; sourceTree = "<group>"; };
-		96EB6C841EC8E1B20035F33B /* ACFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFeedViewController.m; sourceTree = "<group>"; };
-		96EB6C851EC8E1B20035F33B /* ACFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACFeedViewController.xib; sourceTree = "<group>"; };
+		96EB6C831EC8E1B20035F33B /* ACMediaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaListViewController.h; sourceTree = "<group>"; };
+		96EB6C841EC8E1B20035F33B /* ACMediaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaListViewController.m; sourceTree = "<group>"; };
+		96EB6C851EC8E1B20035F33B /* ACMediaListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACMediaListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +81,9 @@
 				96EB6C6A1EC86E390035F33B /* AppDelegate.m */,
 				96EB6C6C1EC86E390035F33B /* ViewController.h */,
 				96EB6C6D1EC86E390035F33B /* ViewController.m */,
-				96EB6C831EC8E1B20035F33B /* ACFeedViewController.h */,
-				96EB6C841EC8E1B20035F33B /* ACFeedViewController.m */,
-				96EB6C851EC8E1B20035F33B /* ACFeedViewController.xib */,
+				96EB6C831EC8E1B20035F33B /* ACMediaListViewController.h */,
+				96EB6C841EC8E1B20035F33B /* ACMediaListViewController.m */,
+				96EB6C851EC8E1B20035F33B /* ACMediaListViewController.xib */,
 				96C41F441EC92BAC000B3E3E /* ACMediaDetailViewController.h */,
 				96C41F451EC92BAC000B3E3E /* ACMediaDetailViewController.m */,
 				96C41F461EC92BAC000B3E3E /* ACMediaDetailViewController.xib */,
@@ -176,7 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96EB6C821EC87BD20035F33B /* ACInstagramWebViewController.xib in Resources */,
-				96EB6C871EC8E1B20035F33B /* ACFeedViewController.xib in Resources */,
+				96EB6C871EC8E1B20035F33B /* ACMediaListViewController.xib in Resources */,
 				96C41F481EC92BAC000B3E3E /* ACMediaDetailViewController.xib in Resources */,
 				96EB6C761EC86E390035F33B /* LaunchScreen.storyboard in Resources */,
 				96EB6C731EC86E390035F33B /* Assets.xcassets in Resources */,
@@ -194,7 +194,7 @@
 				96C41F471EC92BAC000B3E3E /* ACMediaDetailViewController.m in Sources */,
 				96EB6C811EC87BD20035F33B /* ACInstagramWebViewController.m in Sources */,
 				96EB6C6E1EC86E390035F33B /* ViewController.m in Sources */,
-				96EB6C861EC8E1B20035F33B /* ACFeedViewController.m in Sources */,
+				96EB6C861EC8E1B20035F33B /* ACMediaListViewController.m in Sources */,
 				96EB6C6B1EC86E390035F33B /* AppDelegate.m in Sources */,
 				96C41F4B1EC9F6BB000B3E3E /* ACInstagramJsonParser.m in Sources */,
 				96EB6C681EC86E390035F33B /* main.m in Sources */,

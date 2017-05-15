@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "ACInstagramWebViewController.h"
-#import "ACFeedViewController.h"
+#import "ACMediaListViewController.h"
 
 
 @interface ViewController ()
@@ -60,7 +60,7 @@
 }
 
 - (IBAction)feed:(id)sender {
-    ACFeedViewController *feedViewController = [[ACFeedViewController alloc] initWithAccessToken:self.instagramWebViewController.accessToken];
+    ACMediaListViewController *feedViewController = [[ACMediaListViewController alloc] initWithAccessToken:self.instagramWebViewController.accessToken];
     [self.navigationController pushViewController:feedViewController animated:YES];
 }
 
