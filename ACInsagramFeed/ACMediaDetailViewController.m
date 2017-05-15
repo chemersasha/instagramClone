@@ -33,9 +33,14 @@
     [super viewDidLoad];
     
     self.userName.text = [ACInstagramJsonParser fullNameFromDictionary:self.data];
+    
     NSString *profileImageUrl = [ACInstagramJsonParser profileImageUrlFromDictionary:self.data];
     self.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profileImageUrl]]];
+    self.profileImageView.layer.cornerRadius = 42.5;
+    self.profileImageView.clipsToBounds = YES;
+    
     self.likes.text = [ACInstagramJsonParser likesFromDictionary:self.data];
+    
     NSString *photoUrl = [ACInstagramJsonParser photoUrlFromDictionary:self.data];
     self.photoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]]];
 }
