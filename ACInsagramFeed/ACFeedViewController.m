@@ -8,6 +8,7 @@
 
 #import "ACFeedViewController.h"
 #import "ACMediaDetailViewController.h"
+#import "ACInstagramJsonParser.h"
 
 @interface ACFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSString *accessToken;
@@ -39,7 +40,7 @@
 }
 
 - (void)requestMediaRecent {
-    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent?count=30&access_token=%@",  self.accessToken];
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent?access_token=%@",  self.accessToken];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [request setHTTPMethod:@"GET"];
@@ -82,8 +83,8 @@
     }
  
     NSDictionary *rowData = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[rowData objectForKey:@"user"] objectForKey:@"full_name"];
-    NSString *imageUrl = [[[rowData objectForKey:@"images"] objectForKey:@"thumbnail"] objectForKey:@"url"];
+    cell.textLabel.text = [ACInstagramJsonParser fullNameFromDictionary:rowData];
+    NSString *imageUrl = [ACInstagramJsonParser thumbnailUrlFromDictionary:rowData];
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
  
     return cell;

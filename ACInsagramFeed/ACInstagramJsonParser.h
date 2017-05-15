@@ -10,4 +10,10 @@
 
 @interface ACInstagramJsonParser : NSObject
 
++(NSString *)fullNameFromDictionary:(NSDictionary *)dictionary;
++(NSString *)thumbnailUrlFromDictionary:(NSDictionary *)dictionary;
++(NSString *)profileImageUrlFromDictionary:(NSDictionary *)dictionary;
++(NSString *)likesFromDictionary:(NSDictionary *)dictionary;
++(NSString *)photoUrlFromDictionary:(NSDictionary *)dictionary;
+
 @end

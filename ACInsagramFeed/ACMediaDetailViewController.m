@@ -7,6 +7,7 @@
 //
 
 #import "ACMediaDetailViewController.h"
+#import "ACInstagramJsonParser.h"
 
 @interface ACMediaDetailViewController ()
 @property (strong, nonatomic) NSDictionary *data;
@@ -31,11 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.userName.text = [[self.data objectForKey:@"user"] objectForKey:@"full_name"];
-    NSString *profileImageUrl = [[self.data objectForKey:@"user"] objectForKey:@"profile_picture"];
+    self.userName.text = [ACInstagramJsonParser fullNameFromDictionary:self.data];
+    NSString *profileImageUrl = [ACInstagramJsonParser profileImageUrlFromDictionary:self.data];
     self.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profileImageUrl]]];
-    self.likes.text = [[[self.data objectForKey:@"likes"] objectForKey:@"count"] stringValue];
-    NSString *photoUrl = [[[self.data objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"];
+    self.likes.text = [ACInstagramJsonParser likesFromDictionary:self.data];
+    NSString *photoUrl = [ACInstagramJsonParser photoUrlFromDictionary:self.data];
     self.photoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]]];
 }
 
