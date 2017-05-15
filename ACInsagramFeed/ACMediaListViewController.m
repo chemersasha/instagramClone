@@ -7,8 +7,11 @@
 //
 
 #import "ACMediaListViewController.h"
+#import "ACMediaListViewCell.h"
 #import "ACMediaDetailViewController.h"
 #import "ACInstagramJsonParser.h"
+
+const CGFloat kACMediaListCellHeight = 165.0;
 
 @interface ACMediaListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSString *accessToken;
@@ -69,24 +72,34 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kACMediaListCellHeight;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *tableCellIdentifier = @"ACMediaListViewCell";
  
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
- 
+    ACMediaListViewCell *cell = (ACMediaListViewCell *)[tableView dequeueReusableCellWithIdentifier:tableCellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
- 
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ACMediaListViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    } 
+
     NSDictionary *rowData = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = [ACInstagramJsonParser fullNameFromDictionary:rowData];
+
     NSString *imageUrl = [ACInstagramJsonParser thumbnailUrlFromDictionary:rowData];
-    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
- 
+    cell.photoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+
+    NSString *profileImageUrl = [ACInstagramJsonParser profileImageUrlFromDictionary:rowData];
+    cell.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profileImageUrl]]];
+    
+    cell.userNameLabel.text = [ACInstagramJsonParser fullNameFromDictionary:rowData];
+    cell.likesLabel.text = [ACInstagramJsonParser likesFromDictionary:rowData];
+    
     return cell;
 }
 
