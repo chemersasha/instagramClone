@@ -15,5 +15,6 @@
 +(NSString *)profileImageUrlFromDictionary:(NSDictionary *)dictionary;
 +(NSString *)likesFromDictionary:(NSDictionary *)dictionary;
 +(NSString *)photoUrlFromDictionary:(NSDictionary *)dictionary;
++(NSString *)paginationNextUrlFromDictionary:(NSDictionary *)dictionary;
 
 @end

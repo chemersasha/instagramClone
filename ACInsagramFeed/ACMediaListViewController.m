@@ -12,10 +12,11 @@
 #import "ACInstagramJsonParser.h"
 
 const CGFloat kACMediaListCellHeight = 165.0;
+NSString * const kACMediaRecentRequestUrl = @"https://api.instagram.com/v1/users/self/media/recent?count=10&access_token=";
 
 @interface ACMediaListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSString *accessToken;
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSMutableArray *data;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
@@ -34,7 +35,10 @@ const CGFloat kACMediaListCellHeight = 165.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self requestMediaRecent];
+    self.data = [NSMutableArray new];
+    
+    [self.activityIndicator startAnimating];
+    [self requestMediaRecent:[NSString stringWithFormat:@"%@%@", kACMediaRecentRequestUrl, self.accessToken]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,16 +46,21 @@ const CGFloat kACMediaListCellHeight = 165.0;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)requestMediaRecent {
-    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent?access_token=%@",  self.accessToken];
+- (void)requestMediaRecent:(NSString *)url {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [request setHTTPMethod:@"GET"];
 
-    [self.activityIndicator startAnimating];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //@TODO handle error
         NSDictionary *dataJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        self.data = [dataJSON objectForKey:@"data"];
+        [self.data addObjectsFromArray:[dataJSON objectForKey:@"data"]];
+        
+        NSString *nextUrl = [ACInstagramJsonParser paginationNextUrlFromDictionary:dataJSON];
+        if (nextUrl) {
+            [self requestMediaRecent:nextUrl];
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];

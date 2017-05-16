@@ -59,12 +59,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yao-yJ-i63">
-                    <rect key="frame" x="10" y="178" width="356" height="469"/>
+                    <rect key="frame" x="10" y="178" width="356" height="480"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Yao-yJ-i63" secondAttribute="bottom" constant="20" id="8m8-Q8-rrG"/>
+                <constraint firstAttribute="bottom" secondItem="Yao-yJ-i63" secondAttribute="bottom" constant="9" id="8m8-Q8-rrG"/>
                 <constraint firstItem="Yao-yJ-i63" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="J0E-NN-7i1"/>
                 <constraint firstAttribute="trailing" secondItem="LhC-TY-FSc" secondAttribute="trailing" constant="16" id="KWJ-ws-5nW"/>
                 <constraint firstItem="LhC-TY-FSc" firstAttribute="leading" secondItem="6ad-He-QHt" secondAttribute="trailing" constant="16" id="PiB-a9-EQm"/>

@@ -30,4 +30,8 @@
     return [[[dictionary objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"];
 }
 
++(NSString *)paginationNextUrlFromDictionary:(NSDictionary *)dictionary {
+    return [[dictionary objectForKey:@"pagination"] objectForKey:@"next_url"];
+}
+
 @end
